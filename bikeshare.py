@@ -32,7 +32,8 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
+    #Use a while loop for user input till user correctly inputs city data
     while True:
         city = input("Would you like to see data for Chicago, New York, or Washington: ")
         if city.lower() not in('chicago','new york','washington'):
@@ -40,10 +41,10 @@ def get_filters():
         else:
             city=city.lower()
             break
-            
+
     month=input("Which month? Please type your response as Jan,Feb,Mar,Apr,May, June or All: ")
     month=mon_dic.get(month.lower())
-      
+
     day_in=int(input("Which day? Please type your response as an integer (e.g. 1=Sunday or 8=All): "))
     day=day_dic.get(day_in)
 
@@ -54,9 +55,10 @@ def display_raw_data(df):
     """
     Asks user if they want to see 5 lines of raw data.
     Returns the 5 lines of raw data if user inputs `yes`. Iterate until user response with a `no`
-   
+
     """
     data=0
+    #Use a while loop for user input till user wants to view raw data
     while True:
         answer = input('Would you like to see 5 lines of raw data? Enter yes or no: ')
         if answer.lower() == 'yes':
@@ -64,7 +66,7 @@ def display_raw_data(df):
             data += 5
         else:
             break
-            
+
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -76,23 +78,23 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     df=pd.read_csv(CITY_DATA.get(city))
-    
+
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-    
+
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         months=months.index(month) + 1
-        
+
         df = df[df.month == months]
 
     if day != 'all':
         df = df[df.day_of_week == day.title()]
-        
+
     return df
 
 
@@ -121,9 +123,9 @@ def station_stats(df):
     print('Most commonly used start station: ',df['Start Station'].mode()[0])
 
     print('Most commonly used end station: ',df['End Station'].mode()[0])
-    
+
     print('Most frequent combination of start and end station trip ',df.groupby(['Start Station','End Station']).size().nlargest(1))
-  
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -168,7 +170,7 @@ def main():
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
-        
+
         ## There is no gender column in washington data hence displaying user stats only for other cities chicago or new york
         if city.lower()!='washington':
            user_stats(df)
