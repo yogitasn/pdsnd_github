@@ -33,6 +33,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
+
     #Use a while loop for user input till user correctly inputs city data
     while True:
         city = input("Would you like to see data for Chicago, New York, or Washington: ")
@@ -58,6 +59,7 @@ def display_raw_data(df):
 
     """
     data=0
+
     #Use a while loop for user input till user wants to view raw data
     while True:
         answer = input('Would you like to see 5 lines of raw data? Enter yes or no: ')
@@ -86,12 +88,14 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
+    # If statement to check if months is not all, get the index and filter by month
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         months=months.index(month) + 1
 
         df = df[df.month == months]
 
+    # if statement to check if day is not all and filter by day
     if day != 'all':
         df = df[df.day_of_week == day.title()]
 
