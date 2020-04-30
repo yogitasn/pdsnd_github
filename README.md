@@ -12,7 +12,6 @@ The developed CLI program allows the user to explore an US bikeshare system data
 <a href="https://review.udacity.com/#!/reviews/2227784">Project Submission</a>
 
 ### Files used
-Python file: bikeshare.py
 Run python file using command: python bikeshare.py
 
 Data Files used for running the program
@@ -21,4 +20,8 @@ Data Files used for running the program
 * washington.csv
 
 Files can be downloaded from path
-<a href="https://video.udacity-data.com/topher/2018/March/5aab379c_bikeshare-2/bikeshare-2.zip>Data Files</a>
+<a href="https://video.udacity-data.com/topher/2018/March/5aab379c_bikeshare-2/bikeshare-2.zip">Data Files</a>
+
+### Requirements
+This program was written in Python (version 3.6.3) and relies on the following libraries:
+pandas==0.23.4 numpy==1.15.4
