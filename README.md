@@ -20,7 +20,7 @@ Data Files used for running the program
 * washington.csv
 
 Files can be downloaded from path
-<a href="https://video.udacity-data.com/topher/2018/March/5aab379c_bikeshare-2/bikeshare-2.zip">Data Files</a>
+<a href="https://video.udacity-data.com/topher/2018/March/5aab379c_bikeshare-2/bikeshare-2.zip">Files</a>
 
 ### Requirements
 This program was written in Python (version 3.6.3) and relies on the following libraries:
